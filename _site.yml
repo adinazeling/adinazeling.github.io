@@ -2,9 +2,10 @@ name: "Yay internet!"
 output_dir: "."
 navbar:
   title: "Home"
-  right:
-    - text: "About"
+  left:
+    - text: "About Me"
       href: about.html
+  right:
     - icon: fa-envelope fa-lg
       href: mailto:<azz2107@cumc.columbia.edu>
     - icon: fab fa-linkedin
@@ -12,5 +13,5 @@ navbar:
     - icon: fa-github fa-lg
       href: http://github.com/adinazeling/
 output:
-  html_document
-  template: flatly
+  html_document:
+    theme: flatly

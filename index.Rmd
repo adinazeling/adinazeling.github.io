@@ -1,9 +1,18 @@
 ---
-title: "Holy cow!"
+title: "Adina Zhang"
 ---
 
-### I have a webpage!
+MSc Student in Biostatistics   
+Columbia University Mailman School of Public Health
 
-And I can put all kinds of stuff on it!
 
-Here is a link to my [about page](about.html).
+<img src="images/headshot.jpg" 
+align = "left" 
+style = "width:30%;height:40%;margin-right: 20px">
+
+> "My interest is not data, it's the world. And part of the world development you can see in numbers. Others, like human rights, empowerment of women, it's very difficult to measure in numbers." - Hans Rosling
+
+
+
+
+

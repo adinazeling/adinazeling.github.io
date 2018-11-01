@@ -1,9 +1,24 @@
 ---
-title: "About"
+title: "About Me"
 ---
 
-### About this site
+### Education
+* Cornell University '17, BSc Biological Engineering 
+* Columbia University '20, MSc Biostatistics
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
+### Work Experience
+**Clinical Research Assistant**
+*Boston Children's Hospital*
+*Computational Health and Informatics Program, Biobank for Health Discovery*
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+  
+**Student Researcher**
+*Collaborative Crop Research Program*
+In the summer of 2016, I began research in Kitale, Kenya. I collaborated with Kenyan students on the design and implementation of household surveys collecting data on agricultural, nutritional, and cultural practices using smartphones and Open Data Kit.
+
+
+### Personal Projects
+**SOS Aquaponics**
+SOS Aquaponics is a social entrepreneurial venture using aquaponics technology to produce fresh fish and vegetables as a source of sustainable funding for SOS Childrens Villages. Working with my classmates, I performed market analysis on.. I developed fundraising material including a crowdfunding video and company website.
+
+**Moshi Emergency Medical Services**
