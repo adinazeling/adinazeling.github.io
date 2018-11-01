@@ -1,6 +1,9 @@
 ---
 title: "Plotly"
-output: html_document
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
 This page shows some example plotly plots
@@ -11,51 +14,56 @@ library(tidyverse)
 library(viridis)
 library(p8105.datasets)
 library(plotly)
+library(flexdashboard)
 ```
 
 ```{r}
-# Load dataset
+# Load and clean dataset
+
 set.seed(1)
 
-data(nyc_airbnb)
-nyc_airbnb = 
-  nyc_airbnb %>% 
-  mutate(rating = review_scores_location / 2) %>%
-  select(boro = neighbourhood_group, neighbourhood, rating, price, room_type,
-         latitude, longitude) %>%
-  filter(!is.na(rating), 
-         boro == "Manhattan",
-         room_type == "Entire home/apt",
-         price %in% 100:500)  %>% 
+nyc_rest = 
+  rest_inspec %>% 
+  select(boro, camis, critical_flag, cuisine_description, score, grade) %>%
   sample_n(5000)
 ```
 
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+#### NYC Restaurant Inspection Barplot
+
 ```{r}
+common_cuisine =
+  nyc_rest %>% 
+  count(cuisine_description, sort = TRUE) %>% 
+  top_n(10) %>% 
+  select(cuisine_description)
 
-nyc_airbnb %>%
-  mutate(text_label = str_c("Price: $", price, '\nRating: ', rating)) %>% 
-  plot_ly(x = ~longitude, y = ~latitude, type = "scatter", mode = "markers",
-          alpha = 0.5, 
-          color = ~price,
-          text = ~text_label)
+inner_join(nyc_rest, common_cuisine,
+             by = "cuisine_description") %>% 
+  filter(!is.na(grade)) %>% 
+  group_by(cuisine_description, grade) %>% 
+  summarize(n = n()) %>% 
+  plot_ly(x = ~cuisine_description, y = ~n, type = 'bar', color = ~grade) %>% 
+  layout(yaxis = list(title = 'Count'), 
+         xaxis = list(title = 'Cuisine Type'), 
+         barmode = 'stack')
 
-# \n indicates a new line
+
+
 ```
 
-#### Plotly boxplot
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+#### NYC Restaurant Inspection Boxplot
 
 ```{r}
-common_neighborhoods =
-  nyc_airbnb %>% 
-  count(neighbourhood, sort = TRUE) %>% 
-  top_n(8) %>% 
-  select(neighbourhood)
-## Selecting by n
 
-inner_join(nyc_airbnb, common_neighborhoods,
-             by = "neighbourhood") %>% 
-  mutate(neighbourhood = fct_reorder(neighbourhood, price)) %>% 
-  plot_ly(y = ~price, color = ~neighbourhood, type = "box",
+boxplot = nyc_rest %>% 
+  mutate(boro = fct_reorder(boro, score)) %>% 
+  plot_ly(y = ~score, color = ~boro, type = "box",
           colors = "Set2")
 ```
 

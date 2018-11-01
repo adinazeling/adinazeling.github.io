@@ -1,13 +1,53 @@
-```{r setup, include=FALSE}
+---
+title: "NYC Restaurant Inspection Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(viridis)
+library(p8105.datasets)
+library(plotly)
 library(flexdashboard)
+```
+
+```{r nyc_rest, include = FALSE}
+# Load and clean dataset
+
+set.seed(1)
+
+nyc_rest = 
+  rest_inspec %>% 
+  select(boro, camis, critical_flag, 
+         cuisine_description, score, grade, inspection_date) %>%
+  sample_n(5000)
 ```
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+#### NYC Restaurant Inspection Barplot
 
 ```{r}
+common_cuisine =
+  nyc_rest %>% 
+  count(cuisine_description, sort = TRUE) %>% 
+  top_n(10) %>% 
+  select(cuisine_description)
+
+inner_join(nyc_rest, common_cuisine,
+             by = "cuisine_description") %>% 
+  filter(!is.na(grade)) %>% 
+  group_by(cuisine_description, grade) %>% 
+  summarize(n = n()) %>% 
+  plot_ly(x = ~cuisine_description, y = ~n, type = 'bar', color = ~grade) %>% 
+  layout(yaxis = list(title = 'Count'), 
+         xaxis = list(title = 'Cuisine Type'), 
+         barmode = 'stack')
 
 ```
 
@@ -16,13 +56,22 @@ Column {data-width=350}
 
 ### Chart B
 
-```{r}
-
+```{r boxplot, message = FALSE}
+nyc_rest %>% 
+  filter(!(boro == "Missing")) %>% 
+  mutate(boro = fct_reorder(boro, score)) %>% 
+  plot_ly(y = ~score, color = ~boro, type = "box",
+          colors = "Set2")
 ```
 
 ### Chart C
 
 ```{r}
-
+nyc_rest %>% 
+  separate(inspection_date, into = c("year", "month", "day"), sep = "-") %>% 
+  filter(!(year %in% c(1900, 2012, 2013))) %>% 
+  group_by(year, month) %>% 
+  summarize(n = n()) %>% 
+  plot_ly(x = ~month, y = ~n, type = 'scatter', mode = 'lines', color = ~year)
 ```
 
