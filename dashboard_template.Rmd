@@ -19,8 +19,7 @@ set.seed(1)
 nyc_rest = 
   rest_inspec %>% 
   select(boro, camis, critical_flag, 
-         cuisine_description, score, grade, inspection_date) %>%
-  sample_n(5000)
+         cuisine_description, score, grade, inspection_date) 
 ```
 
 
@@ -31,6 +30,9 @@ Column 1
 ### Number of inspections by month
 
 ```{r}
+# Create line plot of inspections over time
+# Separate date variable into year, month, and day
+# Subset and plot a line graph
 nyc_rest %>% 
   separate(inspection_date, into = c("year", "month", "day"), sep = "-") %>% 
   filter(!(year %in% c(1900, 2012, 2013))) %>% 
@@ -48,6 +50,9 @@ Column 2
 ### Distribution of inspection scores by boroughs
 
 ```{r}
+# Create a boxplot of score distributions by borough
+# Order boros by score
+# Plot boxplots with color distinguishing between restaurants flagged as critical or not critical
 nyc_rest %>% 
   filter(!(boro == "Missing"),!(critical_flag == "Not Applicable")) %>% 
   mutate(boro = fct_reorder(boro, score)) %>% 
@@ -62,12 +67,16 @@ nyc_rest %>%
 ### Number of grades by cuisine type
 
 ```{r}
+# Identify 10 most common cuisine types in NYC restaurant dataset
 common_cuisine =
   nyc_rest %>% 
   count(cuisine_description, sort = TRUE) %>% 
   top_n(10) %>% 
   select(cuisine_description)
 
+# Filter dataset to only include top 10 most common cuisine types
+# Subset by cuisine description and grade
+# Plot a stacked bar graph with color defined by grade 
 inner_join(nyc_rest, common_cuisine,
              by = "cuisine_description") %>% 
   filter(!is.na(grade)) %>% 

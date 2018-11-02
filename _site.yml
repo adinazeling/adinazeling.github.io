@@ -5,6 +5,8 @@ navbar:
   left:
     - text: "About Me"
       href: about.html
+    - text: "Dashboard"
+      href: dashboard_template.html
   right:
     - icon: fa-envelope fa-lg
       href: mailto:<azz2107@cumc.columbia.edu>

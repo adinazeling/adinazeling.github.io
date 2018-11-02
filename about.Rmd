@@ -3,28 +3,53 @@ title: "About Me"
 ---
 
 ### Education
-**Cornell University** - BS Biological Engineering '17  
-**Columbia University** - MS Biostatistics '20  
+**Cornell University**  Bachelor of Science, Biological Engineering '17  
+**Columbia University**  Master of Science, Biostatistics '20  
 
 ***
 
 ### Work Experience
 **Clinical Research Assistant**  
 *Boston Children's Hospital, Computational Health and Informatics Program*  
-*Biobank for Health Discovery*  
+*Biobank for Health Discovery* 
+  
 * Implemented recruitment strategies to enroll 1000+ participants for the Biobank in both inpatient and outpatient clinic settings.  
-* Ensured compliance with goals and objectives of research protocols as well as state and and federal regulatory guidelines.  
+* Ensured compliance with goals and objectives of research protocols as well as state and and federal regulatory guidelines for human subject research.  
 * Compiled data from hospital and FDA databases to analyze off-label druge usage in pediatric patients.  
   
     
 **Collaborative Crop Research Program, Kenya**  
 *Cornell International Institute for Food, Agriculture, and Development*  
-In the summer of 2016, I began research in Kitale, Kenya. I collaborated with Kenyan students on the design and implementation of household surveys collecting data on agricultural, nutritional, and cultural practices using smartphones and Open Data Kit.
+  
+* Collaborated with Kenyan students on the design and implementation of household surveys collecting data on agricultural, nutritional, and cultural practices using smartphones and Open Data Kit.  
+* Conducted over 60 stakeholder interviews with various community members including health professionals and government members.  
+* Analyzed data that addressed the food insecurity, agricultural practices, and socioeconomic status of smallholder farmers in Kenya using statistical packages including R and JMP.
 
 ***
 
 ### Personal Projects
 **SOS Aquaponics**  
-SOS Aquaponics is a social entrepreneurial venture using aquaponics technology to produce fresh fish and vegetables as a source of sustainable funding for SOS Childrens Villages. Working with my classmates, I performed market analysis on.. I developed fundraising material including a crowdfunding video and company website.
+SOS Aquaponics is a social entrepreneurial venture using aquaponics technology to produce fresh fish and vegetables as a source of sustainable funding for SOS Childrens Villages. 
+  
+* Performed market analysis and research in support of a business plan.  
+* Developed fundraising material including a crowdfunding video and company website.  
+* Presented at the Unite for Sight Innovation competition and placed as a semi-finalist.
 
 **Moshi Emergency Medical Services**  
+  
+* Designed a Theory of Change to improve emergency medical services in Moshi, Tanzania involving pre-hospital and hospital-based care.  
+* Researched evidence-based interventions, analyzed contextual and normative considerations, and created a system of monitoring and evaluation.
+
+***
+
+### Awards and Achievements
+**Berman Award for Engineering Communications**  
+*2017 Recipient*  
+    
+**Unite for Sight Innovation Competition**  
+*2017 Semi-finalist*  
+  
+**Tang Travel Grant**  
+*2016 Recipient*   
+
+
