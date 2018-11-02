@@ -10,7 +10,8 @@ Columbia University Mailman School of Public Health
 align = "left" 
 style = "width:30%;height:40%;margin-right: 20px">
 
-*"My interest is not data, it's the world. And part of the world development you can see in numbers. Others, like human rights, empowerment of women, it's very difficult to measure in numbers." - Hans Rosling
+*"My interest is not data, it's the world. And part of the world development you can see in numbers. Others, like human rights, empowerment of women, it's very difficult to measure in numbers."*  
+- Hans Rosling
 
 I am a first year biostatistics student interested in quantifying and conceptualizing 
 
